@@ -63,7 +63,8 @@ deeper in the binary will reveal it.
 
 Stepping through the binary we found the word macaron popping several times on the stack, after a quick
 search it seems that indeed Macaron is a sweet from France :)
-![macaron](/tmctf2017/reverse-100/imgs/macaron.png)
+
+![macaron](imgs/macaron.png)
 
 We used macaron as our password to unzip the file biscuit2:
 ```
@@ -140,7 +141,7 @@ the relevant asm code:
 The functions copy 5 chars from the string biscuit and a loop using sym.\_shift_char transforms it to
 **choux**.
 
-![choux](/tmctf2017/reverse-100/imgs/choux.png)
+![choux](imgs/choux.png)
 
 It seems that we have everything we need now, after sending our new flag TMCTF{cream\_ choux} it was not
 accepted, after messing with the space and underscore we tried TMCTF{choux\_ cream} and that was the
