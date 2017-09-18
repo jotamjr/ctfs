@@ -1,10 +1,11 @@
-#Description
+# Description
 The pilot challenge was part of the pwn category, there was a binary available to download and the only
 information we got was this:
-
+```
 Can I take your order?
 
 nc pwn.chal.csaw.io 8464
+```
 
 # Running the binary
 First of all we will run the binary to check if there is some sort for information that can help us to
