@@ -161,7 +161,7 @@ Since there is no NX protection to prevent the execution of code in the stack we
 directly to the stack and modify the ret address in order to jump there, since we just want to spawn a shell
 in the remote server we will use the following code in ASM to generate our shellcode that is just sysexecv("/bin/sh",0,0):
 
-``asm
+```asm
 bits 64
 
 push 59
