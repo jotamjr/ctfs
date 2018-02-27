@@ -54,7 +54,6 @@ and after that we had to add the value 0xf007ba11. We used pwntools to generate 
 to connect to the challenge to get our flag.
 
 ```python
-cat sc.py
 from pwn import *
 
 c = remote('pwn.ctf.tamu.edu', 4321)
