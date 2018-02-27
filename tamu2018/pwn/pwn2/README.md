@@ -1,8 +1,13 @@
 # pwn2 #
 
-No hints were provided for this challenge ...
-
 ![description](imgs/description.png)
+
+We downloaded the binary pwn2 ...
+
+```
+sha256sum pwn2 
+c3b921705c4a05c12954bce65bb8070d52d24d56f163bef04803e51864fd2f39  pwn2
+```
 
 ## Running the binary ##
 Running the binary gave us a general idea of what it does ...
