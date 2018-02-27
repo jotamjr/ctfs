@@ -31,11 +31,11 @@ r2 pwn1copy
 [x] Use -AA or aaaa to perform additional experimental analysis.
 [x] Constructing a function name for fcn.* and sym.func.* functions (aan)
 ```
-We listed the functions with the afl command and something poped out inmediatly:
+We listed the functions with the afl command and something popped out immediately:
 
 ![afl-functions](imgs/afl.png)
 
-There was an intersting function called sym.print_flag (hopefully that would give us our flag),
+There was an interesting function called sym.print_flag (hopefully that would give us our flag),
 after inspecting the execution flow we noticed that there was a comparison between an address in
 memory and the constant 0xf007ba11.
 
