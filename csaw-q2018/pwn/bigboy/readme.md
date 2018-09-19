@@ -18,7 +18,7 @@ Sat Sep 15 23:55:27 CST 2018
 
 It doesn't matter how long is the user input, the result is the same.
 
-#Analysis#
+# Analysis #
 We fire up radare2 to take a peek at the binary, we immediately find some interesting stuff in the
 main function as shown below.
 
