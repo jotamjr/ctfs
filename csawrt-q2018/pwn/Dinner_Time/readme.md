@@ -133,7 +133,7 @@ buf = cyclic(56,n=8) + p64(0x004005cf) + "\x41" * 8 + "\x42" * 8
 
 After sending our buffer, we can verify that the registers have the values we need ..
 
-![Registers](./imgs/regs)
+![Registers](./imgs/regs.png)
 
 Our final buffer ended up like this ...
 
