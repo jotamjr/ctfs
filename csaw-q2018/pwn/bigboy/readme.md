@@ -16,9 +16,9 @@ asdf
 Sat Sep 15 23:55:27 CST 2018
 ```
 
-It doesn't matter how long is the user input the result its the same.
+It doesn't matter how long is the user input, the result is the same.
 
-#Analysis#
+# Analysis #
 We fire up radare2 to take a peek at the binary, we immediately find some interesting stuff in the
 main function as shown below.
 
@@ -27,7 +27,7 @@ main function as shown below.
 At address 0x004006a8 we compare if the value stored in **local__1ch** is not equal to 0xcaf3baee,
 if they are different we jump to 0x004006bb that calls /bin/date.
 
-```
+```asm
 0x004006bb      bf86074000     mov edi, str.bin_date                ; 0x400786 ; "/bin/date"
 0x004006c0      e861ffffff     call sym.run_cmd
 ```
@@ -35,7 +35,7 @@ if they are different we jump to 0x004006bb that calls /bin/date.
 Otherwise we continue execution at address 0x004006af, this address calls /bin/bash (probably we
 are looking for this condition)
 
-```
+```asm
 0x004006af      bf7c074000     mov edi, str.bin_bash                ; 0x40077c ; "/bin/bash"
 0x004006b4      e86dffffff     call sym.run_cmd
 ```
