@@ -20,3 +20,7 @@ writeups:
 
 * [Challenge 01 - MinesweeperChampionshipRegistration](./ch01-MinesweeperChampionshipRegistration/readme.md)
 * [Challenge 02 - UltimateMinesweeper](./ch02-UltimateMinesweeper/readme.md)
+* [Challenge 03 - FLEGGO](./ch03-FLEGGO/readme.md)
+* Challenge 04 - binstall [pending upload]
+* Challenge 05 - web2point0 [pending upload]
+* Challenge 06 - magic [pending upload]

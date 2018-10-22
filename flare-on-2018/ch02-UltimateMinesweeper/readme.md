@@ -1,5 +1,5 @@
-# Challenge 02
-# MinesweeperChampionshipRegistration
+# Challenge 2
+## MinesweeperChampionshipRegistration
 
 After extracting the 7z file an EXE file was recovered ...
 
