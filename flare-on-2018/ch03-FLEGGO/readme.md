@@ -80,7 +80,9 @@ total 3.3M
 -rw-r--r-- 1 foobar foobar  44K Jun  2 16:38 y77GmQGdwVL7Fc9mMdiLJMgFQ8rgeSrl.exe
 -rw-r--r-- 1 foobar foobar  44K Jun  2 16:38 zRx3bsMfOwG8IaayOeS8rHSSpiRfc9IB.exe
 ```
-Since these are windows binaries, they can be execute in wine.
+### Running the binary
+
+Since these are windows binaries, they can be executed in wine.
 
 ```
 wine 1BpnGjHOT7h5vvZsV4vISSb60Xj3pX5G.exe
@@ -88,8 +90,10 @@ What is the password?
 randompass
 Go step on a brick!
 ```
-It seems like a password is needed, at this point is necessary to disassemble the binary and
-that means time to fire up radare2!.
+It seemed like a password was required, at that point it was necessary to disassemble the
+binary and it was time to fire up radare2!.
+
+### Static Analysis
 
 Digging in the main function of the binary a routine that was attempting to locate a resource
 called BRICK somewhere in the binary caught my attention.
@@ -109,6 +113,8 @@ revealed as well (note the 16 bit wide strings).
 It was time to start a dynamic analysis to check if that string was the password we needed,
 in retrospective I should have tested this string as password right away however it was nice
 to understand what was happening under the hood.
+
+### Debugging the binary
 
 During runtime, **FindResourceW** returned the address 0x00A9E080 (0x0040e080 using radare2 base address)
 as the pointer to the BRICK resource, that same pointer is passed to **LoadResource** as an HRSRC 
