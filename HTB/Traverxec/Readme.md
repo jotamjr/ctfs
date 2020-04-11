@@ -259,6 +259,6 @@ nostromo_1.9.6-1.deb  root.txt
 ```
 And here we have our second flag root.txt now we are just a cat away to have or trophy. 
 To know more about this quirks of \*nix derivates systems you can checkout
-[gftobins](https://gtfobins.github.io/gtfobins/) there are a lot of binaries that can
+[gftobins](https://gtfobins.github.io/) there are a lot of binaries that can
 be leveraged to have a shell in restricted environments.
 
