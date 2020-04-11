@@ -153,7 +153,7 @@ homedirs_public		public_www
 ```
 The homedirs\* directive reminds me of the Apache capability to share users directories inside their home that could be accessed like http://host/~user. After doing that for our user
 david we are presented with this page.
-![user](./imgs/private_space)
+![user](./imgs/private_space.png)
 Seems promising but there are no links, returning back to my shell I tried to list the public\_www folder for user david since even though we do not have permission to read david's home itself at lease we should be able to see public\_www and there it was another folder
 called protected-file-area.  
 ```
