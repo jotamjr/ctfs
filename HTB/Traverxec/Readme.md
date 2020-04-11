@@ -6,7 +6,7 @@ together to get a major compromise.
 
 ## Recon ##
 As always the first step is to identify the services running on the target, there are
-different tools for this but we are going to use nmap for this.
+different tools for this but we are going to use nmap.
 
 ```
 > nmap -sC -sT -sV -oA recon traverxec.htb
