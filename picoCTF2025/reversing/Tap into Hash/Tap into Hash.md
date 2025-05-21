@@ -1,4 +1,4 @@
-#### Description
+# Description
 
 Can you make sense of this source code file and write a function that will decode the given encrypted file content?Find the encrypted file [here](https://challenge-files.picoctf.net/c_verbal_sleep/97b2fa78864cfef5beafa9815bc7b4941f2592d12e39287f7212359ce10f086c/enc_flag). It might be good to analyze [source file](https://challenge-files.picoctf.net/c_verbal_sleep/97b2fa78864cfef5beafa9815bc7b4941f2592d12e39287f7212359ce10f086c/block_chain.py) to get the flag.
 
