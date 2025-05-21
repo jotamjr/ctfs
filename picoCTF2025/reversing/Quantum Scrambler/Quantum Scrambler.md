@@ -6,7 +6,7 @@ We invented a new cypher that uses "quantum entanglement" to encode the flag. Do
 
 The python code generated what it seemed garbage at first ...
 
-![[Pasted image 20250520194745.png]]
+![Pasted image 20250520194745.png](./attachments/Pasted%20image%2020250520194745.png)
 
 After testing it locally  it seems there is logic to this madness, at the end the python script is packing a bunch of stuff between the Nth and Nth+1 chars, with this insight it's just a matter of programmatically recover what we are interested in ...
 

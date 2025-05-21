@@ -21,7 +21,7 @@ d41d8cd98f00b204e9800998ecf8427e
 
 After reversing the binary we noticed that it loads a string to be used in system at offset 013a0.
 
-![[Pasted image 20250330182216.png]]
+![Pasted image 20250330182216.png](./attachments/Pasted%20image%2020250330182216.png)
 
 This string contains the following command
 

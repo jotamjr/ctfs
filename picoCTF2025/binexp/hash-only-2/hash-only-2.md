@@ -4,14 +4,14 @@ Here is a binary that has enough privilege to read the content of the flag file 
 
 # Solution
 
-This challenge should be related with [[hash-only-1]], first we identify that instead of our home directory the binary is in the /usr/local/bin path now.
+This challenge should be related with hash-only-1, first we identify that instead of our home directory the binary is in the /usr/local/bin path now.
 
 ```
 ctf-player@pico-chall$ whereis flaghasher
 flaghasher: /usr/local/bin/flaghasher
 ```
 
-Seems like we are in a restricted shell that doesn't allow us to modify environment variables like we did before with [[hash-only-1]] or do other stuff like call files directly using a full path /xxx/xxx.
+Seems like we are in a restricted shell that doesn't allow us to modify environment variables like we did before with hash-only-1 or do other stuff like call files directly using a full path /xxx/xxx.
 
 ```
 ctf-player@pico-chall$ /bin/bash

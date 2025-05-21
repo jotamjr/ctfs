@@ -38,30 +38,30 @@ else if (choice == 3) {
 
 The feedback variable is at most 8 bytes long and we are reading NAME_LEN bytes of size 32 into it. Something worth noting is that we don't have canary, NX and pie protections enabled for this binary.
 
-![[Pasted image 20250308125226.png]]
+![Pasted image 20250308125226.png](./attachments/Pasted%20image%2020250308125226.png)
 
 This will make our life easier since we can just pivot execution to the stack and go from there ...
 
 It seems we are able to write from (rbp-0x2e0)-choice
 
-![[Pasted image 20250308154628.png]]
+![Pasted image 20250308154628.png](./attachments/Pasted%20image%2020250308154628.png)
 
 At time of execution we have 0xfd4 bytes between rsp and rbp, if we take the 2e0 offset into account we are separated by 0xcf4, this should be enough space to prepare our custom shellcode.
 
 If we add the first payload via the addition of an entry and message, we should have a payload at $rsp+0x10 as shown below ...
 
-![[Pasted image 20250308161605.png]]
+![Pasted image 20250308161605.png](./attachments/Pasted%20image%2020250308161605.png)
 
 
 ... so if we are able to overwrite the return address with a push rsp, ret instruction we should be able to redirect execution to our shellcode  in the stack.
 
 Also if we use the exit feature, we are able to overwrite pass rbp ...
 
-![[Pasted image 20250308162307.png]]
+![Pasted image 20250308162307.png](./attachments/Pasted%20image%2020250308162307.png)
 
 While looking for ways to gain execution control it became clear that we could leverage the different registers that had data from our controlled buffer like RAX, RCX and RSI ...
 
-![[Pasted image 20250308162703.png]]
+![Pasted image 20250308162703.png](./attachments/Pasted%20image%2020250308162703.png)
 
 At this point we just had to find a call or jmp instruction to one of our controlled registers that could be used to execute our first stage shellcode, fortunately there is a call rax instruction at offset 0x401014.
 
@@ -79,7 +79,7 @@ ret
 
 Once that is executed we have our second stage shellcode ready at offset RSP-0x2e0.
 
-![[Pasted image 20250308172954.png]]
+![Pasted image 20250308172954.png](./attachments/Pasted%20image%2020250308172954.png)
 
 Full py script ...
 

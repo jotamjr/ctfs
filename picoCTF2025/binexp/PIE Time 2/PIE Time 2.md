@@ -10,15 +10,15 @@ The program's source code can be downloaded [here](https://challenge-files.pico
 
 # Solution
 
-This is an advanced variant of the first [[PIE Time]] challenge, on this one we need a leak in order to properly bypass ASLR.
+This is an advanced variant of the first PIE Time challenge, on this one we need a leak in order to properly bypass ASLR.
 
 Checking the binary we noticed that on the function **call_functions** we find a string format vulnerability, this allows us to leak pointers directly from memory (hopefully).
 
-![[Pasted image 20250307123123.png]]
+![Pasted image 20250307123123.png](./attachments/Pasted%20image%2020250307123123.png)
 
 While debugging the binary and testing for results on different positions, we noticed that we get the return address leaked in position 19, this pointer matches the offset for main at offset 0x1441.
 
-![[Pasted image 20250330185220.png]]
+![Pasted image 20250330185220.png](./attachments/Pasted%20image%2020250330185220.png)
 
 Armed with this information we can calculate the offset for the win function.
 

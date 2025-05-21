@@ -21,27 +21,27 @@ Since we are inside an infinite loop, we can have unlimited arbitrary reads and 
 
 ## Getting a reliable leak
 
-First as explained in [[PIE Time 2]] we can use a string format vulnerability to get an arbitrary read from memory, after debugging the binary we noticed that in position 21 we get a leak to a return address in the stack.
+First as explained in PIE Time 2 we can use a string format vulnerability to get an arbitrary read from memory, after debugging the binary we noticed that in position 21 we get a leak to a return address in the stack.
 
-![[Pasted image 20250307144913.png]]
+![Pasted image 20250307144913.png](./attachments/Pasted%20image%2020250307144913.png)
 
 This matches the address for main+18.
 
-![[Pasted image 20250307144929.png]]
+![Pasted image 20250307144929.png](./attachments/Pasted%20image%2020250307144929.png)
 
 We send a string format with that position using the shouting function and judging by the 12 LSB we are getting the same offset.
 
-![[Pasted image 20250307145038.png]]
+![Pasted image 20250307145038.png](./attachments/Pasted%20image%2020250307145038.png)
 
 ## Calculating the real address of print_flag
 
 Now that we have a leak we just need to know the offset of main we are getting as a return address, according to radare2 this is at offset 0x1413.
 
-![[Pasted image 20250307145240.png]]
+![Pasted image 20250307145240.png](./attachments/Pasted%20image%2020250307145240.png)
 
 We can calculate the base address for the valley binary and get the address of the print_flag function by adding its offset.
 
-![[Pasted image 20250307145356.png]]
+![Pasted image 20250307145356.png](./attachments/Pasted%20image%2020250307145356.png)
 
 ## Arbitrary write to gain code execution
 One neat thing about format string vulnerabilities is that you can also perform arbitrary writes anywhere in memory (of course taking into consideration NX). Now that we have a foothold, we can start looking for feasible addresses to overwrite to gain RCE, one of the obvious ones is to use the GOT and PLT tables, unfortunately this binary was built with full RELRO meaning that the GOT table is ready only. 
@@ -50,26 +50,26 @@ Since that is not possible we are going to try to overwrite a return address in 
 
 Checking the stack during execution time in GDB reveals something similar to the following layout.
 
-![[Pasted image 20250307170124.png]]
+![Pasted image 20250307170124.png](./attachments/Pasted%20image%2020250307170124.png)
 
 It seems we leak several addresses of the stack but the one we are interested is the one before our return address at 0x7ff3ac7e08, this return address if followed by a value 0x2 in the stack, we were able to replicate the same behavior in a second execution ...
 
-![[Pasted image 20250307170945.png]]
+![Pasted image 20250307170945.png](./attachments/Pasted%20image%2020250307170945.png)
 
 We use the same technique as our first step and discover that a stack address is leaked in position 20.
 
-![[Pasted image 20250307171004.png]]
+![Pasted image 20250307171004.png](./attachments/Pasted%20image%2020250307171004.png)
 
 Now we almost have all the pieces we need to gain code execution, one thing we still need to sort out is the limited buffer of just 100 chars, this means we can't write big values such as the one required for 64 bits since printf uses the total number of bytes printed.
 
 To get around this we are going to overwrite 2 bytes at a time, in the next image we see the return address changed to print_flag.
 
 
-![[Pasted image 20250307183234.png]]
+![Pasted image 20250307183234.png](./attachments/Pasted%20image%2020250307183234.png)
 
 Once we redirect execution we are able to get the flag ...
 
-![[Pasted image 20250307183601.png]]
+![Pasted image 20250307183601.png](./attachments/Pasted%20image%2020250307183601.png)
 
 Full py script ...
 

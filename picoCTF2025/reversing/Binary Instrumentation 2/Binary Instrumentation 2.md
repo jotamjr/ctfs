@@ -4,9 +4,9 @@ I've been learning more Windows API functions to do my bidding. Hmm... I swear t
 
 # Solution
 
-Dumped the final payload similar to [[Binary Instrumentation 1]] and searched for strings, gladly it was in plain text (again) ...
+Dumped the final payload similar to Binary Instrumentation 1 and searched for strings, gladly it was in plain text (again) ...
 
-![[Pasted image 20250310212915.png]]
+![Pasted image 20250310212915.png](./attachments/Pasted%20image%2020250310212915.png)
 
 BTW, this confirms that my previos thoughts on these challenges, this is not the intended solution.
 
