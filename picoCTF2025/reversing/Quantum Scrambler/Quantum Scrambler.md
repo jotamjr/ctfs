@@ -1,4 +1,4 @@
-#### Description
+# Description
 
 We invented a new cypher that uses "quantum entanglement" to encode the flag. Do you have what it takes to decode it?Connect to the program with netcat:`$ nc verbal-sleep.picoctf.net 52453`The program's source code can be downloaded [here](https://challenge-files.picoctf.net/c_verbal_sleep/9ff389c89cc804572242d1e2adfeb6bf6a9f1c03cb94c65b30a27f272e24a63d/quantum_scrambler.py).
 
