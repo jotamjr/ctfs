@@ -1,4 +1,4 @@
-#### Description
+# Description
 
 Can you guess the exact token and unlock the hidden flag?Our school relies on tokens to authenticate students. Unfortunately, someone leaked an important [file for token generation](https://challenge-files.picoctf.net/c_verbal_sleep/7ae3cdbcc5ac8f841a488d91465c1255ff0538f9061a2bb222293ec840af981c/token_generator.py). Guess the token to get the flag.
 
